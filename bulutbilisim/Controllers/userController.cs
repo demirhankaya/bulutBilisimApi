@@ -41,7 +41,7 @@ namespace bulutbilisim.Controllers
             }
         }
 
-        /
+        
         [HttpGet("GetLogin")]
         public async Task<IActionResult> GetLogin(string username, string password)
         {
@@ -56,9 +56,9 @@ namespace bulutbilisim.Controllers
                 return Ok(personel);
             }
         }
-        /*
-        [HttpPost("CreatePersonel")]
-        public async Task<IActionResult> CreateUser(string name, string username, string password, string role)
+        
+        [HttpPost("CreateUser")]
+        public async Task<IActionResult> CreateUser(string name, string username, string password)
         {
             try
             {
@@ -67,19 +67,18 @@ namespace bulutbilisim.Controllers
                     return BadRequest(ModelState);
                 }
 
-                personel_tb newUser = new personel_tb
+                User_Tb newUser = new User_Tb
                 {
-                    personelAd = name,
-                    personelKullaniciAdi = username,
-                    personelSifre = password,
-                    personelRol = role
+                    name = name,
+                    userName = username,
+                    pass = password,
                 };
 
-                await _context.personel.AddAsync(newUser);
+                await _context.User.AddAsync(newUser);
 
                 if (await _context.SaveChangesAsync() > 0)
                 {
-                    return CreatedAtAction(nameof(GetPersonelByID), new { id = newUser.personelID }, newUser);
+                    return Ok("Kullanıcı Oluşturuldu");
                 }
                 else
                 {
@@ -91,47 +90,10 @@ namespace bulutbilisim.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
+        
 
-        [HttpPost("UpdatePersonel")]
-        public async Task<IActionResult> UpdatePersonel(int personelID, string? name, string? username, string? password, string? role)
-        {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
-
-                personel_tb User = await _context.personel.Where(w => w.personelID == personelID).FirstOrDefaultAsync();
-                {
-                    if (User == null) { return NotFound(); }
-                    else
-                    {
-                        if (name != null) { User.personelAd = name; }
-                        if (username != null) { User.personelKullaniciAdi = username; }
-                        if (password != null) { User.personelSifre = password; }
-                        if (role != null) { User.personelRol = role; }
-                    }
-                };
-
-
-                if (await _context.SaveChangesAsync() > 0)
-                {
-                    return CreatedAtAction(nameof(GetPersonelByID), new { id = User.personelID }, User);
-                }
-                else
-                {
-                    return NotFound();
-                }
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "Internal Server Error");
-            }
-        }
-
-        [HttpPost("DeletePersonel")]
-        public async Task<IActionResult> DeletePersonel(int personelID)
+        [HttpPost("DeleteUser")]
+        public async Task<IActionResult> DeleteUser(int UserID)
         {
             try
             {
@@ -142,7 +104,7 @@ namespace bulutbilisim.Controllers
 
                 try
                 {
-                    await _context.personel.Where(w => w.personelID == personelID).ExecuteDeleteAsync();
+                    await _context.User.Where(w => w.ID == UserID).ExecuteDeleteAsync();
                     return Ok();
                 }
                 catch (Exception)
@@ -155,6 +117,6 @@ namespace bulutbilisim.Controllers
             {
                 return StatusCode(500, "Internal Server Error");
             }
-        }*/
+        }
     }
 }
