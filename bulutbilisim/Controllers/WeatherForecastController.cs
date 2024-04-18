@@ -1,3 +1,4 @@
+using bulutbilisim.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bulutbilisim.Controllers

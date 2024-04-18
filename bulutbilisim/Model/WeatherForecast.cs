@@ -1,4 +1,4 @@
-namespace bulutbilisim
+namespace bulutbilisim.Model
 {
     public class WeatherForecast
     {
