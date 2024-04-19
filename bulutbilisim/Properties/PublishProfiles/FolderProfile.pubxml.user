@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Android Projeler\bulutBilisimApi\bulutbilisim\bin\Release\net6.0\publish\</_PublishTargetUrl>
-    <History>True|2024-04-19T13:05:51.4549418Z;True|2024-04-19T15:48:06.2754922+03:00;True|2024-04-19T15:36:22.3799930+03:00;</History>
+    <_PublishTargetUrl>C:\Users\demir\Documents\GitHub\bulutBilisimApi\bulutbilisim\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2024-04-19T20:55:17.0675240Z;True|2024-04-19T16:05:51.4549418+03:00;True|2024-04-19T15:48:06.2754922+03:00;True|2024-04-19T15:36:22.3799930+03:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

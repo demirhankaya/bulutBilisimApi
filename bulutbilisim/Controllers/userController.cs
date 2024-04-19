@@ -47,13 +47,15 @@ namespace bulutbilisim.Controllers
         {
             List<User_Tb> personel = await _context.User.Where(w => w.userName == username && w.pass == password).ToListAsync();
 
-            if (personel == null)
+            if (personel.Count != 0)
             {
-                return NotFound();
+                return Ok(personel);
+                
             }
             else
             {
-                return Ok(personel);
+                return NotFound();
+
             }
         }
         
